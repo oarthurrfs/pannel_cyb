@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentinel Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Phishing Defense Console</p>
+        <h1>Detect malicious intent and review threats in one panel.</h1>
+        <p class="hero__text">
+          Paste suspicious emails, SMS messages, website text, or URLs. Sentinel Desk inspects social engineering patterns,
+          risky links, credential theft attempts, financial scam behavior, and other phishing signals.
+        </p>
+      </div>
+      <div class="hero__status">
+        <div class="status-card">
+          <span class="status-card__label">Threats cataloged</span>
+          <strong id="threat-count">0</strong>
+        </div>
+        <div class="status-card">
+          <span class="status-card__label">Highest severity</span>
+          <strong id="highest-severity">Low</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="card detector">
+        <div class="card__header">
+          <div>
+            <p class="card__eyebrow">Detector</p>
+            <h2>Analyze suspicious content</h2>
+          </div>
+          <button id="sample-button" class="ghost-button" type="button">Load sample</button>
+        </div>
+
+        <form id="detector-form" class="detector-form">
+          <label class="field">
+            <span>Threat source</span>
+            <select id="source-type">
+              <option value="email">Email</option>
+              <option value="sms">SMS</option>
+              <option value="website">Website</option>
+              <option value="url">URL only</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Sender or domain</span>
+            <input id="sender-input" type="text" placeholder="billing-alert@secure-payments-example.com">
+          </label>
+
+          <label class="field field--large">
+            <span>Suspicious message, page text, or headers</span>
+            <textarea id="content-input" rows="12" placeholder="Paste the content you want to inspect"></textarea>
+          </label>
+
+          <button class="primary-button" type="submit">Run detection</button>
+        </form>
+      </div>
+
+      <aside class="card panel">
+        <div class="card__header">
+          <div>
+            <p class="card__eyebrow">Threat Panel</p>
+            <h2>Access detected threats</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-box">
+            <span>Risk score</span>
+            <strong id="risk-score">0</strong>
+          </article>
+          <article class="summary-box">
+            <span>Status</span>
+            <strong id="risk-status">No scan yet</strong>
+          </article>
+        </div>
+
+        <div class="panel__section">
+          <h3>Intent signals</h3>
+          <ul id="signals-list" class="signal-list">
+            <li class="signal-list__empty">Run a scan to see matched phishing indicators.</li>
+          </ul>
+        </div>
+
+        <div class="panel__section">
+          <h3>Recommended actions</h3>
+          <ul id="actions-list" class="action-list">
+            <li class="action-list__empty">Recommended actions will appear here after a scan.</li>
+          </ul>
+        </div>
+
+        <div class="panel__section">
+          <h3>Recent threats</h3>
+          <ul id="history-list" class="history-list">
+            <li class="history-list__empty">Your scanned threats will be listed here.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card intel">
+      <div class="card__header">
+        <div>
+          <p class="card__eyebrow">Coverage</p>
+          <h2>Threat library</h2>
+        </div>
+      </div>
+
+      <div id="library-grid" class="library-grid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
