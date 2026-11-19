@@ -9,6 +9,10 @@ Sentinel Desk is a lightweight phishing detector prototype with a threat-access 
 - Shows a threat panel with severity, evidence, risk score, and recommended actions
 - Includes a visible threat library so the analyst can access each monitored threat category
 
+## Documentation
+
+See [USER_GUIDE.md](USER_GUIDE.md) for a full walkthrough of what the app does and how to use it.
+
 ## Run locally
 
 Open `index.html` in a browser.
